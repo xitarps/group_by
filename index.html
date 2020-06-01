@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cars</title>
+</head>
+<body>
+  <pre id="output">
+  </pre>
+  <script>
+    let cars = []
+
+    cars = [
+      {brand: 'Ford', model: 'Ka', motorization: '1.0', year: '2020'},
+      {brand: 'Renault', model: 'Kwid', motorization: '1.0', year: '2019'},
+      {brand: 'Renault', model: 'Sandero', motorization: '1.6', year: '2020'},
+      {brand: 'Honda', model: 'Fit', motorization: '1.0', year: '2020'},
+      {brand: 'Toyota', model: 'Corolla', motorization: '1.8', year: '2019'},
+      {brand: 'Ford', model: 'Ecosport', motorization: '1.6', year: '2018'},
+      {brand: 'Toyota', model: 'Camry', motorization: '3.5', year: '2018'},
+      {brand: 'Toyota', model: 'Sw4', motorization: '2.7', year: '2018'},
+      {brand: 'Fiat', model: 'Mobi', motorization: '1.0', year: '2018'},
+      {brand: 'Renault', model: 'Duster', motorization: '1.6', year: '2016'},
+      {brand: 'Ford', model: 'Fusion', motorization: '2.0', year: '2016'},
+      {brand: 'Fiat', model: 'Uno', motorization: '1.0', year: '2010'},
+      {brand: 'Citroen', model: 'C3', motorization: '1.6', year: '2016'},
+      {brand: 'Citroen', model: 'C4', motorization: '2.0', year: '2016'},
+      {brand: 'Ford', model: 'Edge', motorization: '2.7', year: '2018'},
+      {brand: 'Renault', model: 'Logan', motorization: '1.6', year: '2017'},
+      {brand: 'Honda', model: 'Civic', motorization: '2.0', year: '2017'}
+    ]
+
+    //agrupar por atributo
+    function groupBy(objArray, atribute){
+
+      search = objArray.reduce(function(total,item){
+
+        let key = item[atribute];
+
+        total[key] = (total[key] || []).concat(item)
+
+        return total
+
+      },{});
+
+      return search
+    }
+
+    //imprimir na tela
+    document.querySelector('#output').innerHTML = JSON.stringify(groupBy(cars, 'motorization'), null, 4);
+
+  </script>
+</body>
+</html>

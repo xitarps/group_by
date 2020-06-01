@@ -33,23 +33,17 @@
     ]
 
     //agrupar por atributo
-    function groupBy(objArray, atribute){
-
-      search = objArray.reduce(function(total,item){
-
-        let key = item[atribute];
-
-        total[key] = (total[key] || []).concat(item)
-
-        return total
-
-      },{});
-
-      return search
+    Array.prototype.groupBy = function(attribute){
+      let groupResult = this.reduce((result, item)=>{
+        let eachKey = item[attribute];
+        result[eachKey] = ( result[eachKey] || [] ).concat(item);
+        return result;
+      },{})
+      return groupResult;
     }
 
     //imprimir na tela
-    document.querySelector('#output').innerHTML = JSON.stringify(groupBy(cars, 'motorization'), null, 4);
+    document.querySelector('#output').innerHTML = JSON.stringify(cars.groupBy('year'), null, 4);
 
   </script>
 </body>

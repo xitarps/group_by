@@ -1,5 +1,6 @@
 # Group by
 
+## Javascript:
 ```
 function groupBy(objArray, atribute){
 
@@ -15,5 +16,19 @@ function groupBy(objArray, atribute){
 
   return find
 }
+
+
+
+JSON.stringify(cars.groupBy('year'), null, 4);
+
+```
+
+## Ruby:
+```
+grouped = cars.group_by { |car| car[:brand] }
+
+
+
+JSON.pretty_generate(grouped)
 
 ```
